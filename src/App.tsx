@@ -3,8 +3,10 @@ import Navigation from "./components/Navigation";
 import CartDetails from "./pages/CartDetails";
 import Dashboard from "./pages/Dashboard";
 import * as Styles from "./App.styles";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {}, []);
   return (
     <Styles.App>
       <Router>
