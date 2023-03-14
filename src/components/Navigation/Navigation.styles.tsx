@@ -1,7 +1,7 @@
-import { Box, Button, Menu } from "@mui/material";
+import { AppBar, Box, Button, Menu } from "@mui/material";
 import styled from "styled-components";
 
-export const MobileButtonContainer = styled(Box)`
+export const DesktopButtonContainer = styled(Box)`
   flex-grow: 1;
   display: none;
   @media screen and (min-width: 900px) {
@@ -9,7 +9,7 @@ export const MobileButtonContainer = styled(Box)`
   }
 `;
 
-export const DesktopContainer = styled(Box)`
+export const MobileContainer = styled(Box)`
   flex-grow: 1;
   display: flex;
   @media screen and (min-width: 900px) {
@@ -17,7 +17,7 @@ export const DesktopContainer = styled(Box)`
   }
 `;
 
-export const MobileDropdownButton = styled(Button)`
+export const NavigationButtons = styled(Button)`
   &.MuiButton-root {
     margin: 4px 0 4px 0;
     color: white;
@@ -31,5 +31,11 @@ export const NavigationMenu = styled(Menu)`
     @media screen and (max-width: 900px) {
       display: block;
     }
+  }
+`;
+
+export const Navigation = styled(AppBar)`
+  &.MuiAppBar-root {
+    background-color: #219ebc;
   }
 `;

@@ -1,5 +1,4 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -8,7 +7,7 @@ import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import * as Styles from "./Navigation.styles";
 
-const pages = ["Dashboard"];
+const pages = ["All carts"];
 
 const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -24,13 +23,12 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar color="secondary" position="static">
+    <Styles.Navigation position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Styles.DesktopContainer>
+          <Styles.MobileContainer>
             <IconButton
               size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -59,20 +57,17 @@ const Navigation = () => {
                 </MenuItem>
               ))}
             </Styles.NavigationMenu>
-          </Styles.DesktopContainer>
-          <Styles.MobileButtonContainer>
+          </Styles.MobileContainer>
+          <Styles.DesktopButtonContainer>
             {pages.map((page) => (
-              <Styles.MobileDropdownButton
-                key={page}
-                onClick={handleCloseNavMenu}
-              >
+              <Styles.NavigationButtons key={page} onClick={handleCloseNavMenu}>
                 {page}
-              </Styles.MobileDropdownButton>
+              </Styles.NavigationButtons>
             ))}
-          </Styles.MobileButtonContainer>
+          </Styles.DesktopButtonContainer>
         </Toolbar>
       </Container>
-    </AppBar>
+    </Styles.Navigation>
   );
 };
 
