@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import CartDetails from "./pages/CartDetails";
+import AddCart from "./pages/AddCart";
 import Dashboard from "./pages/Dashboard";
 import * as Styles from "./App.styles";
 import { useEffect } from "react";
@@ -22,7 +22,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/addcart" element={<CartDetails />} />
+          <Route path="/addcart" element={<AddCart />} />
         </Routes>
       </Router>
     </Styles.App>
