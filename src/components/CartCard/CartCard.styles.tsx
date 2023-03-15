@@ -9,9 +9,21 @@ export const CardContainer = styled(Card)`
   }
 `;
 
-export const CardButton = styled(Button)`
+export const CardViewButton = styled(Button)`
   &.MuiButton-root {
     background-color: #fb8500;
+    :hover {
+      background-color: #ffb703;
+    }
+  }
+`;
+
+export const CardDeleteButton = styled(Button)`
+  &.MuiButton-root {
+    background-color: #d62828;
+    :hover {
+      background-color: #ffb703;
+    }
   }
 `;
 

@@ -1,9 +1,9 @@
-import CartCard from "../../components/CartCard";
+import CartCardList from "../../components/CartCardList";
 
 const Dashboard = () => {
   return (
-    <div>
-      <CartCard />
+    <div style={{ margin: "20px" }}>
+      <CartCardList />
     </div>
   );
 };

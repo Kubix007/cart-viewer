@@ -15,14 +15,14 @@ function App() {
   useEffect(() => {
     dispatch(getAllCarts());
     dispatch(getAllProducts());
-  }, []);
+  }, [dispatch]);
   return (
     <Styles.App>
       <Router>
         <Navigation />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/cartdetails" element={<CartDetails />} />
+          <Route path="/addcart" element={<CartDetails />} />
         </Routes>
       </Router>
     </Styles.App>

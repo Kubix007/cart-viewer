@@ -6,8 +6,18 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import * as Styles from "./Navigation.styles";
+import { NavLink } from "react-router-dom";
 
-const pages = ["All carts"];
+const pages = [
+  {
+    displayName: "All carts",
+    path: "/",
+  },
+  {
+    displayName: "Add cart",
+    path: "/addcart",
+  },
+];
 
 const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -52,17 +62,26 @@ const Navigation = () => {
               onClose={handleCloseNavMenu}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.displayName} onClick={handleCloseNavMenu}>
+                  <NavLink to={page.path}>
+                    <Typography textAlign="center">
+                      {page.displayName}
+                    </Typography>
+                  </NavLink>
                 </MenuItem>
               ))}
             </Styles.NavigationMenu>
           </Styles.MobileContainer>
           <Styles.DesktopButtonContainer>
             {pages.map((page) => (
-              <Styles.NavigationButtons key={page} onClick={handleCloseNavMenu}>
-                {page}
-              </Styles.NavigationButtons>
+              <NavLink to={page.path}>
+                <Styles.NavigationButtons
+                  key={page.displayName}
+                  onClick={handleCloseNavMenu}
+                >
+                  {page.displayName}
+                </Styles.NavigationButtons>
+              </NavLink>
             ))}
           </Styles.DesktopButtonContainer>
         </Toolbar>

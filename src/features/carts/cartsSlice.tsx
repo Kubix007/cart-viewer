@@ -103,6 +103,7 @@ export const cartsSlice = createSlice({
       .addCase(getAllCarts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
+        state.isError = false;
         state.data = action.payload;
       })
       .addCase(getAllCarts.rejected, (state, action) => {
@@ -116,6 +117,7 @@ export const cartsSlice = createSlice({
       .addCase(createCart.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
+        state.isError = false;
         state.data.carts = [...state.data.carts, action.payload.carts];
       })
       .addCase(createCart.rejected, (state, action) => {
@@ -129,7 +131,11 @@ export const cartsSlice = createSlice({
       .addCase(deleteCart.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.data = action.payload;
+        state.isError = false;
+        state.data.carts = state.data.carts.filter(
+          (item) => item.id !== action.payload.id
+        );
+        state.message = action.payload.id;
       })
       .addCase(deleteCart.rejected, (state, action) => {
         state.isLoading = false;
