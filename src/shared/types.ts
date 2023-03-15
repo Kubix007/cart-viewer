@@ -57,6 +57,14 @@ export interface IProductData {
   quantity: number;
 }
 
+export interface INewCartData {
+  products: {
+    id: number;
+    quantity: number;
+  }[];
+  totalProducts: number;
+}
+
 export interface ICartData {
   id: number;
   products: {

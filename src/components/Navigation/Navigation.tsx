@@ -74,11 +74,8 @@ const Navigation = () => {
           </Styles.MobileContainer>
           <Styles.DesktopButtonContainer>
             {pages.map((page) => (
-              <NavLink to={page.path}>
-                <Styles.NavigationButtons
-                  key={page.displayName}
-                  onClick={handleCloseNavMenu}
-                >
+              <NavLink to={page.path} key={page.displayName}>
+                <Styles.NavigationButtons onClick={handleCloseNavMenu}>
                   {page.displayName}
                 </Styles.NavigationButtons>
               </NavLink>
