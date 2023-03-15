@@ -1,10 +1,24 @@
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import CartCardList from "../../components/CartCardList";
+import Spinner from "../../components/Spinner";
+import * as Styles from "./Dashboard.styles";
 
 const Dashboard = () => {
+  const { isLoading: isLoadingCarts } = useSelector(
+    (state: RootState) => state.carts
+  );
+  const { isLoading: isLoadingProducts } = useSelector(
+    (state: RootState) => state.products
+  );
+
+  if (isLoadingCarts || isLoadingProducts) {
+    return <Spinner />;
+  }
   return (
-    <div style={{ margin: "20px" }}>
+    <Styles.Container>
       <CartCardList />
-    </div>
+    </Styles.Container>
   );
 };
 

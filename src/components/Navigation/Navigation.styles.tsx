@@ -36,6 +36,6 @@ export const NavigationMenu = styled(Menu)`
 
 export const Navigation = styled(AppBar)`
   &.MuiAppBar-root {
-    background-color: #219ebc;
+    background-color: #bc6c25;
   }
 `;

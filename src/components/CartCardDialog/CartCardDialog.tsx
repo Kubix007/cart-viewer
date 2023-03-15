@@ -6,15 +6,14 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../app/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../app/store";
 import { deleteCart } from "../../features/carts/cartsSlice";
 import * as Types from "./CartCardDialog.types";
 import { toast } from "react-toastify";
 
 const CartCardDialog = ({ open, setOpen, cartId }: Types.IProps) => {
   const dispatch: AppDispatch = useDispatch();
-  const { isLoading } = useSelector((state: RootState) => state.carts);
 
   const handleConfirm = async () => {
     await dispatch(deleteCart(cartId.toString()));
