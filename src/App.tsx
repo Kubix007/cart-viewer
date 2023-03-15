@@ -4,9 +4,18 @@ import CartDetails from "./pages/CartDetails";
 import Dashboard from "./pages/Dashboard";
 import * as Styles from "./App.styles";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./app/store";
+import { getAllProducts } from "./features/products/productsSlice";
+import { getAllCarts } from "./features/carts/cartsSlice";
 
 function App() {
-  useEffect(() => {}, []);
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCarts());
+    dispatch(getAllProducts());
+  }, []);
   return (
     <Styles.App>
       <Router>

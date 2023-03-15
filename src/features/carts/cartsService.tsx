@@ -30,10 +30,10 @@ const deleteCart = async (cartId: string) => {
   return response.data;
 };
 
-const cartService = {
+const cartsService = {
   getAllCarts,
   createCart,
   deleteCart,
 };
 
-export default cartService;
+export default cartsService;

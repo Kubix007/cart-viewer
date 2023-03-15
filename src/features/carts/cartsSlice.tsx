@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
 import * as SharedTypes from "../../shared/types";
-import cartService from "./cartsService";
+import cartsService from "./cartsService";
 
 const initialState: SharedTypes.ICartState = {
   data: {
@@ -41,7 +40,7 @@ export const getAllCarts = createAsyncThunk(
   "/carts/getAll",
   async (_, thunkAPI) => {
     try {
-      return await cartService.getAllCarts();
+      return await cartsService.getAllCarts();
     } catch (error: any) {
       const message =
         (error.response &&
@@ -59,7 +58,7 @@ export const createCart = createAsyncThunk(
   "/carts/create",
   async (productsData: SharedTypes.IProductData, thunkAPI) => {
     try {
-      return await cartService.createCart(productsData);
+      return await cartsService.createCart(productsData);
     } catch (error: any) {
       const message =
         (error.response &&
@@ -77,7 +76,7 @@ export const deleteCart = createAsyncThunk(
   "/carts/delete",
   async (cartId: string, thunkAPI) => {
     try {
-      return await cartService.deleteCart(cartId);
+      return await cartsService.deleteCart(cartId);
     } catch (error: any) {
       const message =
         (error.response &&
@@ -120,6 +119,19 @@ export const cartsSlice = createSlice({
         state.data.carts = [...state.data.carts, action.payload.carts];
       })
       .addCase(createCart.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+      })
+      .addCase(deleteCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.data = action.payload;
+      })
+      .addCase(deleteCart.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload as string;
