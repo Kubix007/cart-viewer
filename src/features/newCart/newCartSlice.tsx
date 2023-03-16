@@ -2,44 +2,24 @@ import { createSlice } from "@reduxjs/toolkit";
 import * as SharedTypes from "../../shared/types";
 
 const initialState: SharedTypes.INewCartData = {
-  products: [
-    {
-      id: 1,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      quantity: 1,
-    },
-  ],
-  totalProducts: 1,
+  products: [],
+  totalProducts: 0,
 };
 export const newCartSlice = createSlice({
   name: "newCart",
   initialState,
   reducers: {
     reset: (state) => initialState,
-    increaseQuantity: (state) => {
+    addNewProduct: (state, action) => {
+      state.products = [...state.products, action.payload];
       state.totalProducts = state.totalProducts + 1;
     },
-    decreaseQuantity: (state) => {
+    removeProduct: (state) => {
+      const newCart = state.products.filter((product) => product.id!);
       state.totalProducts = state.totalProducts - 1;
     },
   },
 });
 
-export const { reset, increaseQuantity, decreaseQuantity } =
-  newCartSlice.actions;
+export const { reset, addNewProduct, removeProduct } = newCartSlice.actions;
 export default newCartSlice.reducer;

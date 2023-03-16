@@ -5,14 +5,9 @@ import Spinner from "../../components/Spinner";
 import * as Styles from "./MyCarts.styles";
 
 const MyCarts = () => {
-  const { isLoading: isLoadingCarts } = useSelector(
-    (state: RootState) => state.carts
-  );
-  const { isLoading: isLoadingProducts } = useSelector(
-    (state: RootState) => state.products
-  );
+  const { isLoading } = useSelector((state: RootState) => state.carts);
 
-  if (isLoadingCarts || isLoadingProducts) {
+  if (isLoading) {
     return <Spinner />;
   }
   return (

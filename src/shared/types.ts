@@ -54,12 +54,27 @@ export interface IProductState {
 
 export interface IProductData {
   id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+}
+
+export interface ITestDAta {
+  id: number;
   quantity: number;
 }
 
 export interface INewCartData {
   products: {
     id: number;
+    productId: number;
     quantity: number;
   }[];
   totalProducts: number;

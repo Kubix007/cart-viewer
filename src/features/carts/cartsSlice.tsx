@@ -56,7 +56,7 @@ export const getAllCarts = createAsyncThunk(
 //Create carts
 export const createCart = createAsyncThunk(
   "/carts/create",
-  async (productsData: SharedTypes.IProductData, thunkAPI) => {
+  async (productsData: SharedTypes.ITestDAta, thunkAPI) => {
     try {
       return await cartsService.createCart(productsData);
     } catch (error: any) {

@@ -8,7 +8,7 @@ const getAllCarts = async () => {
   return response.data;
 };
 
-const createCart = async (productsData: SharedTypes.IProductData) => {
+const createCart = async (productsData: SharedTypes.ITestDAta) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
