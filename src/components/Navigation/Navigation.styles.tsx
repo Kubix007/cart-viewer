@@ -1,4 +1,5 @@
 import { AppBar, Box, Button, Menu } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const DesktopButtonContainer = styled(Box)`
@@ -20,8 +21,11 @@ export const MobileContainer = styled(Box)`
 export const NavigationButtons = styled(Button)`
   &.MuiButton-root {
     margin: 4px 0 4px 0;
-    color: white;
+    color: black;
     display: block;
+  }
+  > a {
+    text-decoration: none;
   }
 `;
 
@@ -36,6 +40,10 @@ export const NavigationMenu = styled(Menu)`
 
 export const Navigation = styled(AppBar)`
   &.MuiAppBar-root {
-    background-color: #fb8500;
+    background-color: white;
   }
+`;
+
+export const Nav = styled(NavLink)`
+  text-decoration: none;
 `;

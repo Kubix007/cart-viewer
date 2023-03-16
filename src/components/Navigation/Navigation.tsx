@@ -63,22 +63,22 @@ const Navigation = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.displayName} onClick={handleCloseNavMenu}>
-                  <NavLink to={page.path}>
+                  <Styles.Nav to={page.path}>
                     <Typography textAlign="center">
                       {page.displayName}
                     </Typography>
-                  </NavLink>
+                  </Styles.Nav>
                 </MenuItem>
               ))}
             </Styles.NavigationMenu>
           </Styles.MobileContainer>
           <Styles.DesktopButtonContainer>
             {pages.map((page) => (
-              <NavLink to={page.path} key={page.displayName}>
+              <Styles.Nav to={page.path} key={page.displayName}>
                 <Styles.NavigationButtons onClick={handleCloseNavMenu}>
                   {page.displayName}
                 </Styles.NavigationButtons>
-              </NavLink>
+              </Styles.Nav>
             ))}
           </Styles.DesktopButtonContainer>
         </Toolbar>
