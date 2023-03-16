@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import CartCardList from "../../components/CartCardList";
 import Spinner from "../../components/Spinner";
-import * as Styles from "./Dashboard.styles";
+import * as Styles from "./MyCarts.styles";
 
-const Dashboard = () => {
+const MyCarts = () => {
   const { isLoading: isLoadingCarts } = useSelector(
     (state: RootState) => state.carts
   );
@@ -22,4 +22,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default MyCarts;

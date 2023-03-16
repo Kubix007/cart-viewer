@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import AddCart from "./pages/AddCart";
-import Dashboard from "./pages/Dashboard";
+import MyCarts from "./pages/MyCarts";
+import Products from "./pages/Products";
 import * as Styles from "./App.styles";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -21,8 +21,8 @@ function App() {
       <Router>
         <Navigation />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/addcart" element={<AddCart />} />
+          <Route path="/carts" element={<MyCarts />} />
+          <Route path="/" element={<Products />} />
         </Routes>
       </Router>
     </Styles.App>

@@ -10,12 +10,12 @@ import { NavLink } from "react-router-dom";
 
 const pages = [
   {
-    displayName: "All carts",
+    displayName: "All products",
     path: "/",
   },
   {
-    displayName: "Add cart",
-    path: "/addcart",
+    displayName: "My carts",
+    path: "/carts",
   },
 ];
 
