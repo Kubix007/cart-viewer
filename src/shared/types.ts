@@ -80,6 +80,12 @@ export interface INewCartData {
   totalProducts: number;
 }
 
+export interface ISingleProduct {
+  id: number;
+  productId: number;
+  quantity: number;
+}
+
 export interface ICartData {
   id: number;
   products: {

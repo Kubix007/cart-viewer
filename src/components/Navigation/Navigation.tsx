@@ -2,11 +2,9 @@ import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import * as Styles from "./Navigation.styles";
-import { NavLink } from "react-router-dom";
 
 const pages = [
   {
@@ -44,7 +42,7 @@ const Navigation = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <Styles.IconMenu />
             </IconButton>
             <Styles.NavigationMenu
               id="menu-appbar"
@@ -65,7 +63,7 @@ const Navigation = () => {
                 <MenuItem key={page.displayName} onClick={handleCloseNavMenu}>
                   <Styles.Nav to={page.path}>
                     <Typography textAlign="center">
-                      {page.displayName}
+                      {page.displayName.toUpperCase()}
                     </Typography>
                   </Styles.Nav>
                 </MenuItem>

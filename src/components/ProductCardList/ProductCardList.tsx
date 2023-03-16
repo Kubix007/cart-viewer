@@ -10,7 +10,7 @@ const ProductCardList = () => {
   );
   return (
     <Stack>
-      <Grid container spacing={10} justifyContent="center">
+      <Grid container spacing={5} justifyContent="center">
         {data.products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
