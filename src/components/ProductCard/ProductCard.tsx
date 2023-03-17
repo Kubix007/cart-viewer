@@ -5,15 +5,45 @@ import * as Types from "./ProductCard.types";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { addNewProduct } from "../../features/newCart/newCartSlice";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ product }: Types.IProps) => {
   const dispatch: AppDispatch = useDispatch();
-  const { totalProducts } = useSelector((state: RootState) => state.newCart);
+  const { totalProducts, products } = useSelector(
+    (state: RootState) => state.newCart
+  );
 
   const handleClick = () => {
-    dispatch(
-      addNewProduct({ id: totalProducts, productId: product.id, quantity: 1 })
-    );
+    if (products.filter((item) => item.productId === product.id).length > 0) {
+      toast.error("You can buy one product of a particular type!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      dispatch(
+        addNewProduct({
+          id: totalProducts,
+          productId: product.id,
+          quantity: 1,
+        })
+      );
+      toast.success("The product was added to your shopping cart!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (

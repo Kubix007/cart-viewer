@@ -25,7 +25,7 @@ const CartCardDialog = ({ open, setOpen, cartId }: Types.IProps) => {
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: "light",
     });
     handleClose();
   };

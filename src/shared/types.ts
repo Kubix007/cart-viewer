@@ -66,9 +66,13 @@ export interface IProductData {
   images: string[];
 }
 
-export interface ITestDAta {
-  id: number;
-  quantity: number;
+export interface ICreateCartRequest {
+  products: [
+    {
+      id: number;
+      quantity: number;
+    }
+  ][];
 }
 
 export interface INewCartData {

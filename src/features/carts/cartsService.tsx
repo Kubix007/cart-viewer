@@ -8,18 +8,14 @@ const getAllCarts = async () => {
   return response.data;
 };
 
-const createCart = async (productsData: SharedTypes.ITestDAta) => {
+const createCart = async (productsData: SharedTypes.ICreateCartRequest) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
-    data: {
-      userId: 1,
-      products: productsData,
-    },
   };
 
-  const response = await axios.post(API_URL + `/add`, config);
+  const response = await axios.post(API_URL + `/add`, productsData, config);
 
   return response.data;
 };

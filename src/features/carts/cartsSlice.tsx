@@ -56,7 +56,7 @@ export const getAllCarts = createAsyncThunk(
 //Create carts
 export const createCart = createAsyncThunk(
   "/carts/create",
-  async (productsData: SharedTypes.ITestDAta, thunkAPI) => {
+  async (productsData: SharedTypes.ICreateCartRequest, thunkAPI) => {
     try {
       return await cartsService.createCart(productsData);
     } catch (error: any) {
@@ -118,7 +118,8 @@ export const cartsSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
-        state.data.carts = [...state.data.carts, action.payload.carts];
+        state.data.carts = [...state.data.carts, action.payload];
+        state.data.total = state.data.total + 1;
       })
       .addCase(createCart.rejected, (state, action) => {
         state.isLoading = false;

@@ -14,8 +14,10 @@ export const newCartSlice = createSlice({
       state.products = [...state.products, action.payload];
       state.totalProducts = state.totalProducts + 1;
     },
-    removeProduct: (state) => {
-      const newCart = state.products.filter((product) => product.id!);
+    removeProduct: (state, action) => {
+      let newCart = [...state.products];
+      newCart.splice(action.payload, 1);
+      state.products = newCart;
       state.totalProducts = state.totalProducts - 1;
     },
   },
