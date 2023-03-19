@@ -72,17 +72,19 @@ const ShoppingCart = () => {
         progress: undefined,
         theme: "light",
       });
-    } catch (error) {}
-    toast.error("ERROR: Cart has not been added!", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+      dispatch(reset());
+    } catch (error) {
+      toast.error("ERROR: Cart has not been added!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   if (myCartTotalProducts === 0) {

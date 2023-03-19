@@ -5,12 +5,18 @@ import CartImage from "../../img/shopping-venture.svg";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import CartCardDialog from "../CartCardDialog";
+import CartDetailsDialog from "../CartDetailsDialog";
 
 const CartCard = ({ carts }: Types.IProps) => {
-  const [open, setOpen] = useState(false);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleDeleteDialog = () => {
+    setOpenDeleteDialog(true);
+  };
+
+  const handleDetailsDialog = () => {
+    setOpenDetailsDialog(true);
   };
   return (
     <>
@@ -34,20 +40,33 @@ const CartCard = ({ carts }: Types.IProps) => {
             </Styles.CardDescription>
           </CardContent>
           <Styles.CardActionContainer>
-            <Styles.CardViewButton size="medium" variant="contained">
+            <Styles.CardViewButton
+              size="medium"
+              variant="contained"
+              onClick={handleDetailsDialog}
+            >
               View cart
             </Styles.CardViewButton>
             <Styles.CardDeleteButton
               variant="contained"
               endIcon={<DeleteIcon />}
-              onClick={handleClickOpen}
+              onClick={handleDeleteDialog}
             >
               Delete
             </Styles.CardDeleteButton>
           </Styles.CardActionContainer>
         </Styles.CardContainer>
       </Grid>
-      <CartCardDialog open={open} setOpen={setOpen} cartId={carts.id} />
+      <CartCardDialog
+        open={openDeleteDialog}
+        setOpen={setOpenDeleteDialog}
+        cartId={carts.id}
+      />
+      <CartDetailsDialog
+        open={openDetailsDialog}
+        setOpen={setOpenDetailsDialog}
+        cart={carts}
+      />
     </>
   );
 };

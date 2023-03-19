@@ -27,6 +27,24 @@ export interface ICartState {
   message: string;
 }
 
+export interface ISingleCart {
+  id: number;
+  products: {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    discountPercentage: number;
+    discountedPrice: number;
+  }[];
+  total: number;
+  discountedTotal: number;
+  userId: number;
+  totalProducts: number;
+  totalQuantity: number;
+}
+
 export interface IProductState {
   data: {
     products: {
@@ -66,6 +84,16 @@ export interface IProductData {
   images: string[];
 }
 
+export interface IProductDetails {
+  id: number;
+  title: string;
+  price: number;
+  quantity: number;
+  total: number;
+  discountPercentage: number;
+  discountedPrice: number;
+}
+
 export interface ICreateCartRequest {
   products: [
     {
@@ -73,6 +101,11 @@ export interface ICreateCartRequest {
       quantity: number;
     }
   ][];
+}
+
+export interface IChartData {
+  price: number;
+  productName: string;
 }
 
 export interface INewCartData {
