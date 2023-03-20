@@ -1,4 +1,5 @@
 import * as Types from "./ChartProduct.types";
+import * as Styles from "./ChartProduct.styles";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -44,16 +45,22 @@ const ChartProduct = ({ products }: Types.IProps) => {
         label: "Regular price",
         data: labels.map(() => products.total),
         backgroundColor: "red",
+        barThickness: 30,
       },
       {
         label: "Discounted price",
         data: labels.map(() => products.discountedPrice),
         backgroundColor: "blue",
+        barThickness: 30,
       },
     ],
   };
 
-  return <Bar options={options} data={data} />;
+  return (
+    <Styles.Container>
+      <Bar options={options} data={data} />
+    </Styles.Container>
+  );
 };
 
 export default ChartProduct;
