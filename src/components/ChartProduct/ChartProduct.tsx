@@ -1,5 +1,4 @@
 import * as Types from "./ChartProduct.types";
-import * as SharedTypes from "../../shared/types";
 import {
   Chart as ChartJS,
   CategoryScale,

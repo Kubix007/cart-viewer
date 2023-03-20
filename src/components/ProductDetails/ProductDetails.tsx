@@ -18,9 +18,6 @@ const ProductDetails = ({ product }: Types.IProps) => {
         <Styles.TopRow>
           <Styles.ProductName>{product.title}</Styles.ProductName>
           <Styles.ProductPrice>
-            <Styles.ProductDiscount>
-              -{product.discountPercentage}%
-            </Styles.ProductDiscount>
             {product.discountedPrice}$
             <Styles.OldPrice>{product.total}$</Styles.OldPrice>
           </Styles.ProductPrice>

@@ -20,7 +20,7 @@ const CartCard = ({ carts }: Types.IProps) => {
   };
   return (
     <>
-      <Grid item>
+      <Grid item data-testid="cartCard">
         <Styles.CardContainer>
           <CardMedia
             component="img"
@@ -44,6 +44,7 @@ const CartCard = ({ carts }: Types.IProps) => {
               size="medium"
               variant="contained"
               onClick={handleDetailsDialog}
+              data-testid="viewCartButton"
             >
               View cart
             </Styles.CardViewButton>
@@ -51,6 +52,7 @@ const CartCard = ({ carts }: Types.IProps) => {
               variant="contained"
               endIcon={<DeleteIcon />}
               onClick={handleDeleteDialog}
+              data-testid="deleteButton"
             >
               Delete
             </Styles.CardDeleteButton>

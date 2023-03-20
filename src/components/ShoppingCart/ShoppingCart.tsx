@@ -115,7 +115,7 @@ const ShoppingCart = () => {
       </Styles.TotalProducts>
       <Styles.ProductsList>
         {myCartProducts.map((item, index) => (
-          <Styles.Product key={item.id}>
+          <Styles.Product key={item.id} data-testid="cartProduct">
             <Styles.ProductImageContainer>
               <img
                 src={getProductDetails(item)?.images[0]}

@@ -47,7 +47,7 @@ const ProductCard = ({ product }: Types.IProps) => {
   };
 
   return (
-    <Grid item>
+    <Grid item data-testid="productCard">
       <Styles.CardContainer>
         <Styles.ProductImage
           component="img"
@@ -73,6 +73,7 @@ const ProductCard = ({ product }: Types.IProps) => {
               variant="contained"
               endIcon={<AddShoppingCartIcon />}
               onClick={handleClick}
+              data-testid="addToCartButton"
             >
               Add to cart
             </Styles.CardAddtoCartButton>

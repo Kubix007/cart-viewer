@@ -48,7 +48,7 @@ const CartCardDialog = ({ open, setOpen, cartId }: Types.IProps) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>NO</Button>
-        <Button onClick={handleConfirm} autoFocus>
+        <Button onClick={handleConfirm} data-testid="yesDeleteButton" autoFocus>
           YES
         </Button>
       </DialogActions>

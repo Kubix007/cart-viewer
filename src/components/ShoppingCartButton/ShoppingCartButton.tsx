@@ -15,6 +15,7 @@ const ShoppingCartButton = () => {
       onClick={handleClick}
       open={open}
       direction="up"
+      data-testid="shoppingCartButton"
     >
       {open && <ShoppingCart />}
     </Styles.ShoppingCartButton>

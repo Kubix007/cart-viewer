@@ -14,7 +14,7 @@ const Products = () => {
   return (
     <>
       <Styles.Container>
-        <ProductCardList />
+        <ProductCardList data-testid="productCardList" />
       </Styles.Container>
       <ShoppingCartButton />
     </>

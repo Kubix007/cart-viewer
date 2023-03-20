@@ -43,13 +43,6 @@ export const ProductPrice = styled(Typography)`
   }
 `;
 
-export const ProductDiscount = styled(Typography)`
-  &.MuiTypography-root {
-    color: red;
-    font-size: 0.7em;
-    text-align: right;
-  }
-`;
 export const MiddleRow = styled(Box)``;
 
 export const ProductCategory = styled(Typography)`
