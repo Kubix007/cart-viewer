@@ -27,6 +27,12 @@ ChartJS.register(
 const ChartProduct = ({ products }: Types.IProps) => {
   const labels = [products.title];
   const options = {
+    indexAxis: "y" as const,
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
     responsive: true,
     plugins: {
       legend: {
@@ -39,21 +45,21 @@ const ChartProduct = ({ products }: Types.IProps) => {
     },
   };
   const data = {
-    labels,
     datasets: [
       {
         label: "Regular price",
         data: labels.map(() => products.total),
-        backgroundColor: "red",
+        backgroundColor: "#fb8500",
         barThickness: 30,
       },
       {
         label: "Discounted price",
         data: labels.map(() => products.discountedPrice),
-        backgroundColor: "blue",
+        backgroundColor: "#d62828",
         barThickness: 30,
       },
     ],
+    labels: [""],
   };
 
   return (

@@ -1,5 +1,4 @@
 import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import * as Styles from "./AccordionPriceChart.styles";
@@ -16,9 +15,9 @@ const AccordionPriceChart = ({ products }: Types.IProps) => {
       >
         <Typography>Price chart</Typography>
       </AccordionSummary>
-      <AccordionDetails>
+      <Styles.Details>
         <ChartProduct products={products} />
-      </AccordionDetails>
+      </Styles.Details>
     </Styles.Accordion>
   );
 };
