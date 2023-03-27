@@ -41,6 +41,14 @@ const ChartProduct = ({ products }: Types.IProps) => {
       legend: {
         position: "top" as const,
       },
+      tooltip: {
+        callbacks: {
+          title: (context: { label: string }[]) =>
+            context[0].label.replaceAll(",", " "),
+          label: (context: any) =>
+            `${context.dataset.label}: ${context.parsed.y}$`,
+        },
+      },
     },
     scales: {
       x: {
