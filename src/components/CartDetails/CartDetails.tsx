@@ -10,9 +10,9 @@ const CartDetails = ({ cart }: Types.IProps) => {
       {cart.products.map((product) => (
         <Box key={product.id}>
           <ProductDetails product={product} />
-          <AccordionPriceChart products={product} />
         </Box>
       ))}
+      <AccordionPriceChart products={cart.products} />
     </Stack>
   );
 };

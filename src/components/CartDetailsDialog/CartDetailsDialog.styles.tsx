@@ -6,7 +6,7 @@ export const DialogContainer = styled(Dialog)`
     width: 100%;
   }
   & .MuiPaper-root {
-    width: 400px;
+    width: -webkit-fill-available;
   }
 `;
 

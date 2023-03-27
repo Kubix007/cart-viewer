@@ -11,7 +11,9 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 
 ChartJS.register(
   CategoryScale,
@@ -25,46 +27,59 @@ ChartJS.register(
 );
 
 const ChartProduct = ({ products }: Types.IProps) => {
-  const labels = [products.title];
+  const productsData = useSelector((state: RootState) => state.products);
+
+  const getProductDetails = (productId: number) => {
+    return productsData.data.products.find((item) => item.id === productId);
+  };
+
+  const labels = products.map((item) => item.title.split(" "));
+
   const options = {
-    indexAxis: "y" as const,
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
     responsive: true,
     plugins: {
       legend: {
         position: "top" as const,
       },
-      title: {
-        display: true,
-        text: products.title,
+    },
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 10,
+          },
+        },
       },
     },
   };
   const data = {
+    labels,
     datasets: [
       {
         label: "Regular price",
-        data: labels.map(() => products.total),
+        data: products.map((item) => getProductDetails(item.id)?.price),
         backgroundColor: "#fb8500",
-        barThickness: 30,
+        borderColor: "#fb8500",
       },
       {
         label: "Discounted price",
-        data: labels.map(() => products.discountedPrice),
+        data: products.map((item) =>
+          Number(
+            (
+              getProductDetails(item.id)?.price! *
+              ((100 - getProductDetails(item.id)?.discountPercentage!) / 100)
+            ).toFixed(2)
+          )
+        ),
         backgroundColor: "#d62828",
-        barThickness: 30,
+        borderColor: "#d62828",
       },
     ],
-    labels: [""],
   };
 
   return (
     <Styles.Container>
-      <Bar options={options} data={data} />
+      <Line options={options} data={data} width={500} height={500} />
     </Styles.Container>
   );
 };
