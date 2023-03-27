@@ -33,7 +33,7 @@ const CartCard = ({ carts }: Types.IProps) => {
               Cart #{carts.id}
             </Styles.CardTitle>
             <Styles.CardDescription variant="body2">
-              Total price: {carts.total}zł
+              Total price: {carts.discountedTotal}$
             </Styles.CardDescription>
             <Styles.CardDescription variant="body2">
               Number of products: {carts.totalProducts}
