@@ -24,7 +24,7 @@ const ShoppingCart = () => {
   };
 
   const mapCartToRequest = () => {
-    let products: any = [];
+    let products: { id: number; quantity: number }[] = [];
     myCartProducts.map((item) =>
       products.push({ id: item.productId, quantity: item.quantity })
     );

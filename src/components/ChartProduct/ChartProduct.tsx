@@ -10,6 +10,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  TooltipItem,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useSelector } from "react-redux";
@@ -45,7 +46,7 @@ const ChartProduct = ({ products }: Types.IProps) => {
         callbacks: {
           title: (context: { label: string }[]) =>
             context[0].label.replaceAll(",", " "),
-          label: (context: any) =>
+          label: (context: TooltipItem<"line">) =>
             `${context.dataset.label}: ${context.parsed.y}$`,
         },
       },

@@ -95,12 +95,10 @@ export interface IProductDetails {
 }
 
 export interface ICreateCartRequest {
-  products: [
-    {
-      id: number;
-      quantity: number;
-    }
-  ][];
+  products: {
+    id: number;
+    quantity: number;
+  }[];
 }
 
 export interface IChartData {

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import * as SharedTypes from "../../shared/types";
 import cartsService from "./cartsService";
+import axios from "axios";
 
 const initialState: SharedTypes.ICartState = {
   data: {
@@ -41,14 +42,19 @@ export const getAllCarts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       return await cartsService.getAllCarts();
-    } catch (error: any) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return thunkAPI.rejectWithValue(message);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      } else {
+        console.log("unexpected error: ", error);
+        return "An unexpected error occurred";
+      }
     }
   }
 );
@@ -59,14 +65,19 @@ export const createCart = createAsyncThunk(
   async (productsData: SharedTypes.ICreateCartRequest, thunkAPI) => {
     try {
       return await cartsService.createCart(productsData);
-    } catch (error: any) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return thunkAPI.rejectWithValue(message);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      } else {
+        console.log("unexpected error: ", error);
+        return "An unexpected error occurred";
+      }
     }
   }
 );
@@ -77,14 +88,19 @@ export const deleteCart = createAsyncThunk(
   async (cartId: string, thunkAPI) => {
     try {
       return await cartsService.deleteCart(cartId);
-    } catch (error: any) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return thunkAPI.rejectWithValue(message);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      } else {
+        console.log("unexpected error: ", error);
+        return "An unexpected error occurred";
+      }
     }
   }
 );
